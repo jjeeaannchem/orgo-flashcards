@@ -57,3 +57,24 @@ body {
   padding: 10px 20px;
   font-size: 1em;
 }
+
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .flashcard div {
+  background: linear-gradient(to bottom right, #4b6cb7, #182848);
+  color: #f1f1f1;
+  border-color: #ddd;
+}
+
+body.light-mode .flashcard div {
+  background: linear-gradient(to bottom right, #f9d976, #f39f86);
+  color: #333;
+}
