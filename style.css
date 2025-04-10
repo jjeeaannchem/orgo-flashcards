@@ -61,6 +61,7 @@ body {
 
 .controls button {
   margin: 0 10px;
+  margin-top: 20px;
   padding: 10px 20px;
   font-size: 1em;
 }
