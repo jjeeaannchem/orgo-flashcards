@@ -24,9 +24,9 @@ body {
 
 .card-inner {
   position: relative;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  display: grid;
 }
+
 
 .flashcard.flipped .card-inner {
   transform: rotateY(180deg);
