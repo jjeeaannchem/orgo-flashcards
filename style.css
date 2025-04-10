@@ -1,11 +1,17 @@
 .flashcard {
-  perspective: 1000px;
   width: 100%;
   max-width: 500px;
   margin: 20px auto;
   cursor: pointer;
-  position: relative;
-  min-height: 160px; /* adjust as needed */
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 1.4em;
+  font-weight: bold;
+  box-sizing: border-box;
+  transition: background 0.3s;
 }
 
 .card-inner {
@@ -43,9 +49,19 @@
 
 .back {
   background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
-  transform: rotateY(180deg);
 }
 
+/* Default: only front is shown */
+#card-back {
+  display: none;
+}
+.flashcard.flipped #card-front {
+  display: none;
+}
+
+.flashcard.flipped #card-back {
+  display: block;
+}
 /* Controls button spacing */
 .controls {
   margin-top: 20px;
