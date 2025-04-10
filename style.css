@@ -78,3 +78,20 @@ body.light-mode .flashcard div {
   background: linear-gradient(to bottom right, #f9d976, #f39f86);
   color: #333;
 }
+
+.flashcard div {
+  /* Existing styles... */
+  background: linear-gradient(135deg, #f9d976, #f39f86);
+  color: #333;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.front {
+  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+}
+
+.back {
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+}
