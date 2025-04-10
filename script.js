@@ -6,16 +6,16 @@ const nextBtn = document.getElementById("next-btn");
 
 const cards = [
   {
-    question: "What is the functional group in ethanol?",
-    answer: "Hydroxyl (-OH)"
+    question: "💧 What is the functional group in ethanol?",
+    answer: "🧪 Hydroxyl (-OH)"
   },
   {
-    question: "Name the product of ethene + HBr",
-    answer: "Bromoethane"
+    question: "⚗️ Name the product of ethene + HBr",
+    answer: "👉 Bromoethane"
   },
   {
-    question: "What is the hybridization of carbon in methane?",
-    answer: "sp3"
+    question: "🧠 What is the hybridization of carbon in methane?",
+    answer: "🔬 sp3"
   }
 ];
 
@@ -60,17 +60,4 @@ themeToggleBtn.addEventListener("click", () => {
   }
 });
 
-const cards = [
-  {
-    question: "💧 What is the functional group in ethanol?",
-    answer: "🧪 Hydroxyl (-OH)"
-  },
-  {
-    question: "⚗️ Name the product of ethene + HBr",
-    answer: "👉 Bromoethane"
-  },
-  {
-    question: "🧠 What is the hybridization of carbon in methane?",
-    answer: "🔬 sp3"
-  }
-];
+
