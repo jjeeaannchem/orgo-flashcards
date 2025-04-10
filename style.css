@@ -5,6 +5,8 @@ body {
   justify-content: start;
   min-height: 100vh;
   padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 .container {
@@ -13,7 +15,6 @@ body {
 }
 
 .flashcard {
-  position: relative;
   width: 100%;
   max-width: 500px;
   margin: 20px auto;
@@ -21,48 +22,54 @@ body {
   cursor: pointer;
 }
 
-.flashcard div {
+/* New wrapper for proper flipping + auto height */
+.card-inner {
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip on .flipped */
+.flashcard.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
   width: 100%;
-  min-height: 100px; /* optional */
   padding: 20px;
   backface-visibility: hidden;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4em;
   border: 2px solid #333;
-  background: white;
   border-radius: 10px;
-  transition: transform 0.6s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
   box-sizing: border-box;
-  transform-style: preserve-3d;
 }
 
 .front {
-  z-index: 2;
-  transform: rotateY(0deg);
+  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
 }
 
 .back {
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
   transform: rotateY(180deg);
 }
 
-.flashcard.flipped .front {
-  transform: rotateY(-180deg);
-}
-
-.flashcard.flipped .back {
-  transform: rotateY(0deg);
+.controls {
+  margin-top: 20px;
 }
 
 .controls button {
   margin: 0 10px;
-  margin-top: 20px;
   padding: 10px 20px;
   font-size: 1em;
 }
 
+/* Theme styles */
 body.light-mode {
   background-color: #f4f4f4;
   color: #333;
@@ -73,30 +80,12 @@ body.dark-mode {
   color: #f1f1f1;
 }
 
-body.dark-mode .flashcard div {
+body.dark-mode .front {
   background: linear-gradient(to bottom right, #4b6cb7, #182848);
   color: #f1f1f1;
-  border-color: #ddd;
 }
 
-body.light-mode .flashcard div {
-  background: linear-gradient(to bottom right, #f9d976, #f39f86);
-  color: #333;
-}
-
-.flashcard div {
-  /* Existing styles... */
-  background: linear-gradient(135deg, #f9d976, #f39f86);
-  color: #333;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-}
-
-.front {
-  background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
-}
-
-.back {
-  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+body.dark-mode .back {
+  background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
+  color: #f1f1f1;
 }
