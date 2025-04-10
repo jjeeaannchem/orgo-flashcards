@@ -60,7 +60,7 @@
 }
 
 .flashcard.flipped #card-back {
-  display: block;
+  display: none;
 }
 /* Controls button spacing */
 .controls {
