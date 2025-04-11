@@ -83,3 +83,18 @@ body.dark-mode .back {
   background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
   color: #f1f1f1;
 }
+
+body.rainy-mode {
+  background-color: #a5a5a5;
+  color: #222;
+}
+
+body.rainy-mode .front {
+  background: linear-gradient(to bottom right, #d7d7d7, #9e9e9e);
+  color: #222;
+}
+
+body.rainy-mode .back {
+  background: linear-gradient(to bottom right, #c2c2c2, #8c8c8c);
+  color: #222;
+}
