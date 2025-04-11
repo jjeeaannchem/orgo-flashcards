@@ -62,9 +62,12 @@ function updateTheme() {
     themeToggleBtn.textContent = "☀️ Toggle Theme";
   } else if (theme === "dark-mode") {
     themeToggleBtn.textContent = "🌙 Toggle Theme";
-  } else {
+  } else if (theme === "rainy-mode") {
     themeToggleBtn.textContent = "🌧️ Toggle Theme";
-  }
+  }  
+  
+  // Trigger raindrops only in rainy mode
+  spawnRaindrops(theme === "rainy-mode");
 }
 
 themeToggleBtn.addEventListener("click", () => {
