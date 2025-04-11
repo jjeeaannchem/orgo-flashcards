@@ -85,16 +85,16 @@ body.dark-mode .back {
 }
 
 body.rainy-mode {
-  background-color: #a5a5a5;
+  background-color: #e0e0e0; /* softer light gray */
   color: #222;
 }
 
 body.rainy-mode .front {
-  background: linear-gradient(to bottom right, #d7d7d7, #9e9e9e);
+  background: linear-gradient(to bottom right, #eeeeee, #dcdcdc); /* misty whites */
   color: #222;
 }
 
 body.rainy-mode .back {
-  background: linear-gradient(to bottom right, #c2c2c2, #8c8c8c);
+  background: linear-gradient(to bottom right, #dddddd, #cccccc); /* light warm gray */
   color: #222;
 }
