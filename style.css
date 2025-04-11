@@ -90,7 +90,7 @@ body.rainy-mode {
 }
 
 body.rainy-mode .front {
-  background: linear-gradient(to bottom right, #dbe9f4, #b8c6db); /* misty whites */
+  background: linear-gradient(to bottom right, #dbe9f4, #b8c6db); /* bluish-mist  */
   color: #222;
 }
 
