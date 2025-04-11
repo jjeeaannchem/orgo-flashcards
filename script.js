@@ -44,20 +44,33 @@ prevBtn.addEventListener("click", () => {
 showCard(currentCard);
 
 const themeToggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
 
-// Default to light mode
-document.body.classList.add("light-mode");
+const themes = ["light-mode", "dark-mode", "rainy-mode"];
+let currentThemeIndex = 0;
 
-themeToggleBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
-  document.body.classList.toggle("dark-mode");
+function updateTheme() {
+  // Remove all other themes
+  themes.forEach(t => body.classList.remove(t));
 
-  // Optional: change emoji on the button
-  if (document.body.classList.contains("dark-mode")) {
+  // Add current theme
+  const theme = themes[currentThemeIndex];
+  body.classList.add(theme);
+
+  // Update button emoji
+  if (theme === "light-mode") {
+    themeToggleBtn.textContent = "☀️ Toggle Theme";
+  } else if (theme === "dark-mode") {
     themeToggleBtn.textContent = "🌙 Toggle Theme";
   } else {
-    themeToggleBtn.textContent = "🌞 Toggle Theme";
+    themeToggleBtn.textContent = "🌧️ Toggle Theme";
   }
+}
+
+themeToggleBtn.addEventListener("click", () => {
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  updateTheme();
 });
 
-
+// Set default theme on page load
+updateTheme();
