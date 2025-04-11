@@ -85,7 +85,7 @@ body.dark-mode .back {
 }
 
 body.rainy-mode {
-  background-color: #e0e0e0; /* softer light gray */
+  background-color: ##f2f2f2; /* softer light gray */
   color: #222;
 }
 
