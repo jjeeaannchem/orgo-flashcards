@@ -1,3 +1,4 @@
+console.log("Script loaded!");
 const flashcard = document.getElementById("flashcard");
 const front = document.getElementById("card-front");
 const back = document.getElementById("card-back");
