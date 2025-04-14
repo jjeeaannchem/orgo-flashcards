@@ -50,6 +50,22 @@ const body = document.body;
 const themes = ["light-mode", "dark-mode", "rainy-mode"];
 let currentThemeIndex = 0;
 
+function spawnRaindrops(enable) {
+  const container = document.getElementById("raindrops");
+  container.innerHTML = ""; // Clear previous
+
+  if (!enable) return;
+
+  for (let i = 0; i < 60; i++) {
+    const drop = document.createElement("div");
+    drop.className = "raindrop";
+    drop.style.left = Math.random() * 100 + "vw";
+    drop.style.animationDuration = 0.5 + Math.random() + "s";
+    drop.style.animationDelay = Math.random() * 2 + "s";
+    container.appendChild(drop);
+  }
+}
+
 function updateTheme() {
   // Remove all other themes
   themes.forEach(t => body.classList.remove(t));
