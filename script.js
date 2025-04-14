@@ -6,17 +6,64 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 
 const cards = [
+  // Functional Groups
   {
     question: "💧 What is the functional group in ethanol?",
     answer: "🧪 Hydroxyl (-OH)"
   },
   {
-    question: "⚗️ Name the product of ethene + HBr",
-    answer: "👉 Bromoethane"
+    question: "🌿 What functional group is present in acetic acid?",
+    answer: "🧪 Carboxylic acid (-COOH)"
   },
+  {
+    question: "🔗 What group defines an aldehyde?",
+    answer: "🧪 Carbonyl group (C=O) at the end of a chain"
+  },
+  {
+    question: "⚗️ What is the functional group of ketones?",
+    answer: "🧪 Carbonyl group (C=O) within a chain"
+  },
+  {
+    question: "💥 What group makes amines basic?",
+    answer: "🧪 Amino group (-NH2)"
+  },
+
+  // Nomenclature
+  {
+    question: "📛 What is the IUPAC name for acetone?",
+    answer: "🧪 Propanone"
+  },
+  {
+    question: "🔤 What is the name of CH3-CH2-OH?",
+    answer: "🧪 Ethanol"
+  },
+  {
+    question: "🧬 What is the name for a six-carbon chain with a double bond on carbon 2?",
+    answer: "🧪 Hex-2-ene"
+  },
+
+  // Hybridization
   {
     question: "🧠 What is the hybridization of carbon in methane?",
     answer: "🔬 sp3"
+  },
+  {
+    question: "🧠 What is the hybridization in ethene?",
+    answer: "🔬 sp2"
+  },
+  {
+    question: "🧠 What is the hybridization in ethyne (acetylene)?",
+    answer: "🔬 sp"
+  },
+
+  // Reactions
+  {
+    question: "⚗️ What is the product of ethene + HBr?",
+    answer: "🧪 Bromoethane (via Markovnikov addition)"
+  },
+  {
+    question: "🔥 What happens when alcohols are oxidized?",
+    answer: "🧪 They form aldehydes, then carboxylic acids"
   }
 ];
 
