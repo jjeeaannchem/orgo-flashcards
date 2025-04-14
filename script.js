@@ -67,40 +67,6 @@ function updateTheme() {
     themeToggleBtn.textContent = "🌧️ Toggle Theme";
   }  
 
-  .raindrops {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10;
-  overflow: hidden;
-}
-
-.raindrop {
-  position: absolute;
-  width: 2px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.3);
-  animation: fall 1s linear infinite;
-  border-radius: 50px;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
-
   // Trigger raindrops only in rainy mode
   spawnRaindrops(theme === "rainy-mode");
 }
