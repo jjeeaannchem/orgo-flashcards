@@ -112,19 +112,21 @@ body.rainy-mode .back {
 
 .raindrop {
   position: absolute;
-  width: 2px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.3);
-  animation: fall 1s linear infinite;
+  width: 3px; /* wider */
+  height: 20px; /* longer */
+  background: rgba(255, 255, 255, 0.15); /* softer white */
+  animation: fall 2s linear infinite;
   border-radius: 50px;
+  filter: blur(1px);     /* gentle blur */
+  opacity: 0.8;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-30px);
     opacity: 0;
   }
-  10% {
+  20% {
     opacity: 1;
   }
   100% {
