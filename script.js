@@ -102,8 +102,10 @@ function showCard(index) {
 
   front.textContent = filteredCards[index].question;
   back.textContent = filteredCards[index].answer;
-  flashcard.classList.toggle("flipped");
-}
+  flashcard.addEventListener("click", () => {
+  cardInner.classList.toggle("flipped");
+});
+
 
 nextBtn.addEventListener("click", () => {
   if (filteredCards.length === 0) return;
