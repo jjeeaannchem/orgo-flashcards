@@ -100,6 +100,14 @@ function showCard(index) {
     return;
   }
 
+  if (cardInner.classList.contains("flipped")) {
+    cardInner.classList.remove("flipped");
+  }
+
+  front.textContent = filteredCards[index].question;
+  back.textContent = filteredCards[index].answer;
+}
+
   front.textContent = filteredCards[index].question;
   back.textContent = filteredCards[index].answer;
   flashcard.addEventListener("click", () => {
