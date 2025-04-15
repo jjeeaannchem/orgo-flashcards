@@ -4,6 +4,8 @@ const front = document.getElementById("card-front");
 const back = document.getElementById("card-back");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
+const cardInner = document.querySelector(".card-inner");
+
 
 const cards = [
   // Functional Groups
@@ -100,7 +102,7 @@ function showCard(index) {
 
   front.textContent = filteredCards[index].question;
   back.textContent = filteredCards[index].answer;
-  flashcard.classList.remove("flipped");
+  flashcard.classList.toggle("flipped");
 }
 
 nextBtn.addEventListener("click", () => {
