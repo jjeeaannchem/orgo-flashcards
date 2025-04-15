@@ -13,18 +13,22 @@ const cards = [
     answer: "🧪 Hydroxyl (-OH)"
   },
   {
+    category: "Functional Groups",
     question: "🌿 What functional group is present in acetic acid?",
     answer: "🧪 Carboxylic acid (-COOH)"
   },
   {
+    category: "Functional Groups",
     question: "🔗 What group defines an aldehyde?",
     answer: "🧪 Carbonyl group (C=O) at the end of a chain"
   },
   {
+    category: "Functional Groups",
     question: "⚗️ What is the functional group of ketones?",
     answer: "🧪 Carbonyl group (C=O) within a chain"
   },
   {
+    category: "Functional Groups",
     question: "💥 What group makes amines basic?",
     answer: "🧪 Amino group (-NH2)"
   },
@@ -36,10 +40,12 @@ const cards = [
     answer: "🧪 Propanone"
   },
   {
+    category: "Nomenclature",
     question: "🔤 What is the name of CH3-CH2-OH?",
     answer: "🧪 Ethanol"
   },
   {
+    category: "Nomenclature",
     question: "🧬 What is the name for a six-carbon chain with a double bond on carbon 2?",
     answer: "🧪 Hex-2-ene"
   },
@@ -51,10 +57,12 @@ const cards = [
     answer: "🔬 sp3"
   },
   {
+    category: "Hybridization",
     question: "🧠 What is the hybridization in ethene?",
     answer: "🔬 sp2"
   },
   {
+    category: "Hybridization",
     question: "🧠 What is the hybridization in ethyne (acetylene)?",
     answer: "🔬 sp"
   },
@@ -66,6 +74,7 @@ const cards = [
     answer: "🧪 Bromoethane (via Markovnikov addition)"
   },
   {
+    category: "Reactions",
     question: "🔥 What happens when alcohols are oxidized?",
     answer: "🧪 They form aldehydes, then carboxylic acids"
   }
