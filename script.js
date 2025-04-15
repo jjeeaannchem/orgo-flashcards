@@ -73,15 +73,26 @@ const cards = [
 
 let currentCard = 0;
 
+let filteredCards = [...cards];
+
+document.getElementById("category-select").addEventListener("change", (e) => {
+  const selected = e.target.value;
+  filteredCards = selected === "All" ? cards : cards.filter(c => c.category === selected);
+  currentCard = 0;
+  showCard(currentCard);
+});
+
 function showCard(index) {
-  front.textContent = cards[index].question;
-  back.textContent = cards[index].answer;
+  if (filteredCards.length === 0) {
+    front.textContent = "No cards in this category.";
+    back.textContent = "Try choosing a different category.";
+    return;
+  }
+
+  front.textContent = filteredCards[index].question;
+  back.textContent = filteredCards[index].answer;
   flashcard.classList.remove("flipped");
 }
-
-flashcard.addEventListener("click", () => {
-  flashcard.classList.toggle("flipped");
-});
 
 nextBtn.addEventListener("click", () => {
   currentCard = (currentCard + 1) % cards.length;
