@@ -95,14 +95,17 @@ function showCard(index) {
 }
 
 nextBtn.addEventListener("click", () => {
+  if (filteredCards.length === 0) return;
   currentCard = (currentCard + 1) % filteredCards.length;
   showCard(currentCard);
 });
 
 prevBtn.addEventListener("click", () => {
+  if (filteredCards.length === 0) return;
   currentCard = (currentCard - 1 + filteredCards.length) % filteredCards.length;
   showCard(currentCard);
 });
+
 
 showCard(currentCard);
 
