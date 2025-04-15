@@ -95,12 +95,12 @@ function showCard(index) {
 }
 
 nextBtn.addEventListener("click", () => {
-  currentCard = (currentCard + 1) % cards.length;
+  currentCard = (currentCard + 1) % filteredCards.length;
   showCard(currentCard);
 });
 
 prevBtn.addEventListener("click", () => {
-  currentCard = (currentCard - 1 + cards.length) % cards.length;
+  currentCard = (currentCard - 1 + filteredCards.length) % filteredCards.length;
   showCard(currentCard);
 });
 
