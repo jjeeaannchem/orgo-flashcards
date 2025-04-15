@@ -8,6 +8,7 @@ const nextBtn = document.getElementById("next-btn");
 const cards = [
   // Functional Groups
   {
+    category: "Functional Groups",
     question: "💧 What is the functional group in ethanol?",
     answer: "🧪 Hydroxyl (-OH)"
   },
@@ -30,6 +31,7 @@ const cards = [
 
   // Nomenclature
   {
+    category: "Nomenclature",
     question: "📛 What is the IUPAC name for acetone?",
     answer: "🧪 Propanone"
   },
@@ -44,6 +46,7 @@ const cards = [
 
   // Hybridization
   {
+    category: "Hybridization",
     question: "🧠 What is the hybridization of carbon in methane?",
     answer: "🔬 sp3"
   },
@@ -58,6 +61,7 @@ const cards = [
 
   // Reactions
   {
+    category: "Reactions",
     question: "⚗️ What is the product of ethene + HBr?",
     answer: "🧪 Bromoethane (via Markovnikov addition)"
   },
