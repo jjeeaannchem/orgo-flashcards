@@ -163,12 +163,13 @@ let filteredCards = [...cards];
   
   // Card flip event listener
   flashcard.addEventListener("click", () => {
-    try {
-      cardInner.classList.toggle("flipped");
-    } catch (error) {
-      errorHandler.handle(error, { action: "flip-card" });
-    }
-  });
+  try {
+    // Toggle the flipped class on card-inner instead of flashcard
+    cardInner.classList.toggle("flipped");
+  } catch (error) {
+    console.error("Error flipping card:", error);
+  }
+});
   
   // Next button event listener
   nextBtn.addEventListener("click", () => {
