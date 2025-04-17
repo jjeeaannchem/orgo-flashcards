@@ -1,11 +1,40 @@
 console.log("Script loaded!");
+
+// Centralized error handler
+const errorHandler = {
+  log(error, context = {}) {
+    console.error(`Error: ${error.message}`, { error, context });
+  },
+  
+  handle(error, context = {}) {
+    this.log(error, context);
+    // Could add user-facing error notification here
+  }
+};
+
+// DOM element references with error handling
+function getElement(id) {
+  const element = document.getElementById(id);
+  if (!element) {
+    throw new Error(`Element with ID "${id}" not found in the DOM`);
+  }
+  return element;
+}
+
+try {
 const flashcard = document.getElementById("flashcard");
 const front = document.getElementById("card-front");
 const back = document.getElementById("card-back");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
-const cardInner = document.querySelector(".card-inner");
-
+const categorySelect = getElement("category-select");
+const themeToggleBtn = getElement("theme-toggle");
+  
+  // Use querySelector with error handling
+  const cardInner = document.querySelector(".card-inner");
+  if (!cardInner) {
+    throw new Error("Card inner element not found");
+  }
 
 const cards = [
   // Functional Groups
@@ -83,7 +112,6 @@ const cards = [
 ];
 
 let currentCard = 0;
-
 let filteredCards = [...cards];
 
 document.getElementById("category-select").addEventListener("change", (e) => {
@@ -103,10 +131,6 @@ function showCard(index) {
   if (cardInner.classList.contains("flipped")) {
     cardInner.classList.remove("flipped");
   }
-
-  front.textContent = filteredCards[index].question;
-  back.textContent = filteredCards[index].answer;
-}
 
   front.textContent = filteredCards[index].question;
   back.textContent = filteredCards[index].answer;
