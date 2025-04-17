@@ -1,38 +1,107 @@
+/* Base styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  opacity: 0.8;
+}
+
+/* Category selector */
+.filter-controls {
+  width: 100%;
+  max-width: 500px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#category-select {
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+}
+
+/* Flashcard styling */
 .flashcard {
   perspective: 1000px;
   width: 100%;
   max-width: 500px;
+  height: 300px; /* Fixed height for consistency */
   margin: 20px auto;
   cursor: pointer;
+  user-select: none; /* Prevent text selection while flipping */
 }
 
 .card-inner {
   position: relative;
   width: 100%;
+  height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
-.flashcard.flipped .card-inner {
+.card-inner.flipped {
   transform: rotateY(180deg);
 }
 
 .card-face {
   position: absolute;
   width: 100%;
+  height: 100%;
   padding: 20px;
   backface-visibility: hidden;
   border: 2px solid #333;
   border-radius: 10px;
-  background: white;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   font-size: 1.4em;
   font-weight: bold;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .front {
   background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+  z-index: 1;
 }
 
 .back {
@@ -40,35 +109,69 @@
   transform: rotateY(180deg);
 }
 
-
-/* Default: only front is shown */
-#card-back {
-  display: none;
-}
-.flashcard.flipped #card-front {
-  display: none;
-}
-
-.flashcard.flipped #card-back {
-  display: block;
-}
 /* Controls button spacing */
 .controls {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .controls button {
-  margin: 0 10px;
   padding: 10px 20px;
   font-size: 1em;
+  background-color: #4a76a8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #3a5a78;
+}
+
+.controls button:focus {
+  outline: 2px solid #1e3a8a;
+}
+
+/* Card counter */
+.card-counter {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Error message */
+.error-message {
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border-left: 5px solid #d8000c;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
 }
 
 /* Theme styles */
+/* Light mode (default) */
 body.light-mode {
   background-color: #f4f4f4;
   color: #333;
 }
 
+body.light-mode .controls button {
+  background-color: #4a76a8;
+}
+
+body.light-mode .controls button:hover {
+  background-color: #3a5a78;
+}
+
+/* Dark mode */
 body.dark-mode {
   background-color: #1e1e1e;
   color: #f1f1f1;
@@ -77,28 +180,58 @@ body.dark-mode {
 body.dark-mode .front {
   background: linear-gradient(to bottom right, #4b6cb7, #182848);
   color: #f1f1f1;
+  border-color: #555;
 }
 
 body.dark-mode .back {
   background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
   color: #f1f1f1;
+  border-color: #555;
 }
 
+body.dark-mode .controls button {
+  background-color: #38507a;
+}
+
+body.dark-mode .controls button:hover {
+  background-color: #283c5a;
+}
+
+body.dark-mode #category-select {
+  background-color: #333;
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+body.dark-mode .card-counter {
+  color: #aaa;
+}
+
+/* Rainy mode */
 body.rainy-mode {
-  background-color: #e0e0e0; /* softer light gray */
+  background-color: #e0e0e0;
   color: #222;
 }
 
 body.rainy-mode .front {
-  background: linear-gradient(to bottom right, #dbe9f4, #b8c6db); /* bluish-mist  */
+  background: linear-gradient(to bottom right, #dbe9f4, #b8c6db);
   color: #222;
 }
 
 body.rainy-mode .back {
-  background: linear-gradient(to bottom right, #dddddd, #cccccc); /* light warm gray */
+  background: linear-gradient(to bottom right, #dddddd, #cccccc);
   color: #222;
 }
 
+body.rainy-mode .controls button {
+  background-color: #607d8b;
+}
+
+body.rainy-mode .controls button:hover {
+  background-color: #455a64;
+}
+
+/* Raindrops effect */
 .raindrops {
   position: fixed;
   top: 0;
@@ -106,18 +239,18 @@ body.rainy-mode .back {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 10;
+  z-index: -1; /* Place behind content */
   overflow: hidden;
 }
 
 .raindrop {
   position: absolute;
-  width: 3px; /* wider */
-  height: 20px; /* longer */
-  background: rgba(255, 255, 255, 0.15); /* softer white */
+  width: 3px;
+  height: 20px;
+  background: rgba(100, 149, 237, 0.3); /* Cornflower blue with transparency */
   animation: fall 2s linear infinite;
   border-radius: 50px;
-  filter: blur(1px);     /* gentle blur */
+  filter: blur(1px);
   opacity: 0.8;
 }
 
@@ -133,4 +266,37 @@ body.rainy-mode .back {
     transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .card-face {
+    font-size: 1.2em;
+    padding: 15px;
+  }
+  
+  .controls button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+  
+  .flashcard {
+    height: 250px;
+  }
+}
+
+/* Accessibility focus styles */
+*:focus {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+/* Animation for error messages */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#error-container {
+  animation: fadeIn 0.5s ease-in;
 }
