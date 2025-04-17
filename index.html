@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Organic Chem Flashcards</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Add a favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Add fallback CSS in case the external stylesheet fails to load -->
+  <style>
+    /* Critical CSS fallback */
+    body { font-family: sans-serif; margin: 0; padding: 20px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .error-message { color: red; padding: 20px; text-align: center; }
+  </style>
 </head>
 <body>
+  <!-- Add error container for JavaScript errors -->
+  <div id="error-container" class="error-message" style="display: none;"></div>
+  
   <div class="container">
-    <button id="theme-toggle">🌞 Toggle Theme</button>
-    <h1>Organic Chem Flashcards</h1>
-
-    <label for="category-select">📂 Category:</label>
-<select id="category-select">
-  <option value="All">All</option>
-  <option value="Functional Groups">Functional Groups</option>
-  <option value="Reactions">Reactions</option>
-  <option value="Hybridization">Hybridization</option>
-</select>
-
-<div class="flashcard" id="flashcard">
-  <div class="card-inner">
-    <div class="card-face front" id="card-front">...</div>
-    <div class="card-face back" id="card-back">...</div>
-  </div>
-</div>
-
-    <div class="controls">
-      <button id="prev-btn">Previous</button>
-      <button id="next-btn">Next</button>
+    <header>
+      <button id="theme-toggle" aria-label="Toggle theme">🌞 Toggle Theme</button>
+      <h1>Organic Chem Flashcards</h1>
+    </header>
+    
+    <div class="filter-controls">
+      <label for="category-select">📂 Category:</label>
+      <select id="category-select" aria-label="Select flashcard category">
+        <option value="All">All</option>
+        <option value="Functional Groups">Functional Groups</option>
+        <option value="Reactions">Reactions</option>
+        <option value="Hybridization">Hybridization</option>
+        <option value="Nomenclature">Nomenclature</option>
+      </select>
     </div>
+
+    <div class="flashcard" id="flashcard" tabindex="0" aria-label="Flashcard, click to flip">
+      <div class="card-inner">
+        <div class="card-face front" id="card-front">Loading question...</div>
+        <div class="card-face back" id="card-back">Loading answer...</div>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button id="prev-btn" aria-label="Previous card">Previous</button>
+      <button id="next-btn" aria-label="Next card">Next</button>
+    </div>
+    
+    <!-- Add card counter -->
+    <div class="card-counter" id="card-counter">Card 1 of 13</div>
   </div>
-  <div class="raindrops" id="raindrops"></div>
+  
+  <div class="raindrops" id="raindrops" aria-hidden="true"></div>
+  
+  <!-- Add error handling for script loading -->
+  <script>
+    window.addEventListener('error', function(e) {
+      if (e.target.tagName.toLowerCase() === 'script') {
+        document.getElementById('error-container').style.display = 'block';
+        document.getElementById('error-container').textContent = 
+          'Failed to load script. Please check your internet connection and refresh the page.';
+      }
+    }, true);
+  </script>
+  
   <script src="script.js"></script>
 </body>
 </html>
